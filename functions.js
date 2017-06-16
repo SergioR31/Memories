@@ -479,7 +479,7 @@ function loadNote(note){
     date.style.marginTop = "25px"
     noteWindow.style.height = "40%";
 
-    noteContent.style.height = "60%";
+    noteContent.style.height = "50%";
 
     addNoteScreen.style.display = "block";
 

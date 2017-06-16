@@ -140,6 +140,8 @@ aside li:hover{
 	bottom: 0px;
 	position: fixed;
 
+    float: left;
+
 	text-align: center;
 }
 
@@ -388,7 +390,7 @@ aside li:hover{
 
 .map1{
     width: calc(100% - 30px);
-    height: 60%;
+    height: 50%;
 
     position: relative;
     margin-top: 15px;
