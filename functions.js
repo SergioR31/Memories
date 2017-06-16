@@ -7,7 +7,7 @@ function validar(){
 	var pass = document.getElementById('userPass');
 	var check = document.getElementById('check');
 
-	if (user.value === "Sergio" && pass.value === "SergioR31") {
+	if (user.value === "Taller" && pass.value === "AMH") {
 		go('home');
 	}else{
 		check.innerHTML = 'User or password incorrect!';
