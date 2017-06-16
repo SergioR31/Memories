@@ -807,4 +807,4 @@ function vibrate(time){
         if (navigator.vibrate){
             navigator.vibrate(tiempo);
         }
-    }
+}

@@ -153,6 +153,8 @@ aside li:hover{
 
     text-align: center center;
 
+    float: left;
+
 	color: white;
 	background-color: rgba(2550,0,0,.75);
 }
