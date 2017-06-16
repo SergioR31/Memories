@@ -15,7 +15,7 @@
         Sergio Ramos Cervantes
     </author>
     <preference name="orientation"                value="portrait" />
-    <preference name="fullscreen"                 value="true" />
+    <preference name="fullscreen"                 value="false" />
 
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-vibration" />
