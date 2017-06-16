@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Places</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="functions.js"></script>
+</head>
+<body class="body" id="body">
+	<nav class="nav">
+		<div class="menu icon" onclick="nav('places')">
+			<img src="menu.png">
+		</div>
+		<h1>Places</h1>
+	</nav>
+	<!-- .nav -->
+
+	<aside class="aside" id="aside">
+		<div class="user-pic">
+			<img src="user-pic.jpg">
+		</div>
+		<div class="user-name">
+			<label>Sergio Ramos</label>
+		</div>
+		<ul>
+			<li class="li-home" onclick="nav('home')">Memories</li>
+			<li class="li-places" onclick="nav('places')">Places</li>
+			<li class="li-notes" onclick="nav('notes')">Notes</li>
+		</ul>
+		<div class="logout">
+			<button onclick="go('index')">Logout</button>
+		</div>
+	</aside>
+    <!-- .aside -->
+
+    <div id="map" class="map">My map will go here</div>
+
+    <div id="add-place" class="modal">
+        <div class="modal-window">
+            <span class="close" onclick="closePlace()">&times;</span>
+            <div id="map1" class="map1"></div>
+            <div id="place-date" class="date">Date</div>
+            <input type="text" id="place-name" class="name" maxlength="20" placeholder="Place...">
+            <div class="memory">
+                <textarea id="memory" placeholder="Write a memory..." maxlength="55"></textarea>
+            </div>
+            <button id="btn-accept" class="btn-accept" onclick="savePlaceMemory()">+</button>
+        </div>
+    </div>
+    <!--.modal-->
+
+    <div id="confirmDelete" class="modal">
+    	<div id="modal-window1" class="modal-window">
+    		<span class="close" onclick="closePlace()">&times;</span>
+    		<div id="message">
+    			<h1>Are you sure?</h1>
+    		</div>
+    		<button id="btn-confirm" class="btn-accept" onclick="deletePlace()">Delete</button>
+    	</div>
+    </div>
+    <!-- #confirmDeletePlace -->
+
+    <div id="place-list" class="place-list" value="1">
+    </div>
+    <!-- .list -->
+
+    <div class="new">
+        <button class="btn-new space" id="new-place" onclick="loadPlace()"></button>
+    </div>
+    <!--.new-->
+
+</body>
+
+<script type="text/javascript">
+    var modal = document.getElementById('add-place');
+    var modal1 = document.getElementById('confirmDeletePlace');
+
+	window.addEventListener('load',select('places'),true);
+    window.onclick = function(event) {
+        if (event.target == modal || event.target == modal1) {
+            modal.style.display = "none";
+            modal1.style.display = "none";
+            myMap();
+        }
+    }
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBndKLx6S04Vztegh9QikXWCmj9IW0yHHg&callback=myMap">
+</script>
+
+
+</html>

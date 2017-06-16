@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.helloworld"
+        version   = "1.0.0">
+
+    <name>Memories</name>
+
+    <description>
+        Aplication to save the places you have visited and notes
+    </description>
+
+    <author email="sergio.ramos.c31@gmail.com">
+        Sergio Ramos Cervantes
+    </author>
+    <preference name="orientation"                value="portrait" />
+    <preference name="fullscreen"                 value="true" />
+
+    <plugin name="cordova-plugin-geolocation" />
+    <plugin name="cordova-plugin-vibration" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+
+    <icon src="icon.png" />
+
+    <access origin="*"/>
+   
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+</widget>
+

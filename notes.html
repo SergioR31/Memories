@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notes</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="functions.js"></script>
+</head>
+<body class="body" id="body">
+	<nav id="nav" class="nav">
+		<div class="menu icon" onclick="nav('notes')">
+			<img src="menu.png">
+		</div>
+		<h1>Notes</h1>
+	</nav>
+	<!-- .nav -->
+
+	<aside class="aside" id="aside">
+		<div class="user-pic">
+			<img src="user-pic.jpg">
+		</div>
+		<div class="user-name">
+			<label>Sergio Ramos</label>
+		</div>
+		<ul>
+			<li class="li-home" onclick="nav('home')">Memories</li>
+			<li class="li-places" onclick="nav('places')">Places</li>
+			<li class="li-notes" onclick="nav('notes')">Notes</li>
+		</ul>
+		<div class="logout">
+			<button onclick="go('index')">Logout</button>
+		</div>
+	</aside>
+	<!-- .aside -->
+
+	<div id="add-note" class="modal">
+    	<div id="modal-window" class="modal-window">
+    		<span class="close" onclick="closeNote()">&times;</span>
+    		<div id="note-date" class="date">Date</div>
+    		<input type="text" id="note-name" class="name" maxlength="20" placeholder="Title">
+    		<div id="div-content" class="memory">
+                <textarea id="content" placeholder="Content..." maxlength="200"></textarea>
+            </div>
+            <button id="btn-save" class="btn-accept" onclick="saveNote()">+</button>
+    	</div>
+    </div>
+    <!-- #add-note .modal --> 
+
+    <div id="confirmDelete" class="modal">
+    	<div id="modal-window1" class="modal-window">
+    		<span class="close" onclick="closeNote()">&times;</span>
+    		<div id="message">
+    			<h1>Are you sure?</h1>
+    		</div>
+    		<button id="btn-confirm" class="btn-accept" onclick="deleteNote()">Delete</button>
+    	</div>
+    </div>
+    <!-- #confirmDeleteNote -->
+
+    <div id="note-list" class="note-list" value="1">
+    </div>
+    <!-- .list -->
+
+	<div class="new">
+        <button class="btn-new space" id="new-note" onclick="loadNote()"></button>
+    </div>
+    <!--.new-->
+
+</body>
+
+<script type="text/javascript">
+	var modal = document.getElementById('add-note');
+	var modal1 = document.getElementById('confirmDeleteNote');
+
+	window.addEventListener('load',select('notes'),true);
+	window.addEventListener('load',addNotes(),true);
+
+	window.onclick = function(event) {
+        if (event.target == modal || event.target == modal1) {
+            modal.style.display = "none";
+            modal1.style.display = "none";
+            addNotes();
+        }
+    }
+</script>
+</html>

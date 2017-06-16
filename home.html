@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memories</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="functions.js"></script>
+</head>
+<body class="body" id="body">
+	<nav id="nav" class="nav">
+		<div class="menu icon" onclick="nav('home')">
+			<img src="menu.png">
+		</div>
+		<h1>Memories</h1>
+	</nav>
+	<!-- .nav -->
+
+	<aside class="aside" id="aside">
+		<div class="user-pic">
+			<img src="user-pic.jpg">
+		</div>
+		<div class="user-name">
+			<label>Sergio Ramos</label>
+		</div>
+		<ul>
+			<li class="li-home" onclick="nav('home')">Memories</li>
+			<li class="li-places" onclick="nav('places')">Places</li>
+			<li class="li-notes" onclick="nav('notes')">Notes</li>
+		</ul>
+		<div class="logout">
+			<button onclick="go('index')">Logout</button>
+		</div>
+	</aside>
+	<!-- .aside -->
+
+    <div id="add-place" class="modal">
+        <div class="modal-window">
+            <span class="close" onclick="closePlace()">&times;</span>
+            <div id="map1" class="map1"></div>
+            <div id="place-date" class="date">Date</div>
+            <input type="text" id="place-name" class="name" maxlength="20" placeholder="Place...">
+            <div class="memory">
+                <textarea id="memory" placeholder="Write a memory..." maxlength="55"></textarea>
+            </div>
+            <button id="btn-accept" class="btn-accept" onclick="savePlaceMemory()">+</button>
+        </div>
+    </div>
+    <!--#add-place .modal-->
+
+    <div id="add-note" class="modal">
+    	<div id="modal-window" class="modal-window">
+    		<span class="close" onclick="closeNote()">&times;</span>
+    		<div id="note-date" class="date">Date</div>
+    		<input type="text" id="note-name" class="name" maxlength="20" placeholder="Title">
+    		<div id="div-content" class="memory">
+                <textarea id="content" placeholder="Content..." maxlength="200"></textarea>
+            </div>
+            <button id="btn-save" class="btn-accept" onclick="saveNote()">+</button>
+    	</div>
+    </div>
+    <!-- #add-note .modal --> 
+
+    <div id="confirmDelete" class="modal">
+    	<div id="modal-window1" class="modal-window">
+    		<span class="close" onclick="closePlace();closeNote()">&times;</span>
+    		<div id="message">
+    			<h1>Are you sure?</h1>
+    		</div>
+    		<button id="btn-confirm" class="btn-accept" onclick="deleteNote()">Delete</button>
+    	</div>
+    </div>
+    <!-- #confirmDeleteNote -->
+
+    <div id="memories" class="note-list">
+    	
+    </div>
+    <!-- .memories -->
+
+	<div id="new" class="new">
+
+		<button class="btn-new hide-new-btns" id="new-place" onclick="loadPlace()"></button>
+        <button class="btn-new hide-new-btns" id="new-note" onclick="loadNote()"></button>
+        <button class="btn-plus plus-image" id="btn-plus" value="1" onclick="showNewBtns()"></button>
+	</div>
+	<!-- .new -->
+
+</body>
+
+<script type="text/javascript">
+	window.addEventListener('load',select('home'),true);
+	window.addEventListener('load',addMemories(),true);
+
+    var addPlace = document.getElementById('add-place');
+    var addNote = document.getElementById('add-note');
+
+    var body = document.getElementById('body');
+
+    var memory = document.getElementById('memories');
+    var divNew = document.getElementById('new');
+
+    window.onclick = function(event) {
+        if (event.target == addPlace || event.target == addNote || event.target == body || event.target == memory || event.target == divNew){
+            addPlace.style.display = "none";
+            addPlace.style.transition = "2s all";
+
+            addNote.style.display = "none";
+            addNote.style.transition = "2s all";
+
+            document.getElementById('aside').classList.remove('ver');
+			document.getElementById('body').classList.remove('ocultar-body');
+        }
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBndKLx6S04Vztegh9QikXWCmj9IW0yHHg&callback=myMap">
+</script>
+</html>
